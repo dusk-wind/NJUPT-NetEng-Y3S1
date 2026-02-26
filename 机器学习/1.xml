@@ -1,0 +1,98 @@
+<mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+  <root>
+    <mxCell id="0" />
+    <mxCell id="1" parent="0" />
+    
+    <!-- Model 1: Detection (Blue Box) -->
+    <mxCell id="m1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#00bfff;dashed=1;dashPattern=8 8;strokeWidth=2;" vertex="1" parent="1">
+      <mxGeometry x="40" y="40" width="300" height="420" as="geometry" />
+    </mxCell>
+    <mxCell id="m1_title" value="Model 1: (MSR-YOLO)&lt;br&gt;Mental Status Recognition&lt;br&gt;based on YOLOv8-pose Model" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#00bfff;fontStyle=0;fontSize=14;" vertex="1" parent="1">
+      <mxGeometry x="50" y="50" width="280" height="60" as="geometry" />
+    </mxCell>
+
+    <!-- Model 2: Feature (Purple Box) -->
+    <mxCell id="m2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#9933ff;dashed=1;dashPattern=8 8;strokeWidth=2;" vertex="1" parent="1">
+      <mxGeometry x="380" y="40" width="300" height="420" as="geometry" />
+    </mxCell>
+    <mxCell id="m2_title" value="Model 2: (FER-CNN)&lt;br&gt;Deep Facial Feature Extraction&lt;br&gt;based on ResNet Backbone" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#9933ff;fontStyle=0;fontSize=14;" vertex="1" parent="1">
+      <mxGeometry x="390" y="50" width="280" height="60" as="geometry" />
+    </mxCell>
+
+    <!-- Model 3: Fusion (Red Box) -->
+    <mxCell id="m3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#ff6666;dashed=1;dashPattern=8 8;strokeWidth=2;" vertex="1" parent="1">
+      <mxGeometry x="720" y="40" width="300" height="420" as="geometry" />
+    </mxCell>
+    <mxCell id="m3_title" value="Model 3: (MSP-FUSION)&lt;br&gt;Multimodal Status Prediction&lt;br&gt;based on Softmax Grading" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#ff6666;fontStyle=0;fontSize=14;" vertex="1" parent="1">
+      <mxGeometry x="730" y="50" width="280" height="60" as="geometry" />
+    </mxCell>
+
+    <!-- Elements inside Model 1 -->
+    <mxCell id="node_face" value="Face landmarks" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1f5fe;strokeColor=#01579b;" vertex="1" parent="1">
+      <mxGeometry x="190" y="140" width="110" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="node_pose" value="Body posture" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f5e9;strokeColor=#2e7d32;" vertex="1" parent="1">
+      <mxGeometry x="190" y="210" width="110" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="node_input" value="Campus Video&lt;br&gt;Stream" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eceff1;strokeColor=#455a64;" vertex="1" parent="1">
+      <mxGeometry x="60" y="340" width="110" height="50" as="geometry" />
+    </mxCell>
+
+    <!-- Thick Arrows (Flex Arrows) -->
+    <mxCell id="arrow1" value="" style="shape=flexArrow;endArrow=classic;startArrow=classic;html=1;rounded=0;fillColor=#b3e5fc;strokeColor=#01579b;" edge="1" parent="1">
+      <mxGeometry width="50" height="50" relative="1" as="geometry">
+        <mxPoint x="340" y="240" />
+        <mxPoint x="380" y="240" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="arrow2" value="" style="shape=flexArrow;endArrow=classic;startArrow=classic;html=1;rounded=0;fillColor=#f3e5f5;strokeColor=#9933ff;" edge="1" parent="1">
+      <mxGeometry width="50" height="50" relative="1" as="geometry">
+        <mxPoint x="680" y="240" />
+        <mxPoint x="720" y="240" />
+      </mxGeometry>
+    </mxCell>
+
+    <!-- Elements inside Model 2 -->
+    <mxCell id="node_roi" value="ROI Cropping" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f3e5f5;strokeColor=#7b1fa2;" vertex="1" parent="1">
+      <mxGeometry x="470" y="140" width="110" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="node_cnn" value="Spatial Feature&lt;br&gt;Extraction" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f3e5f5;strokeColor=#7b1fa2;" vertex="1" parent="1">
+      <mxGeometry x="470" y="220" width="110" height="50" as="geometry" />
+    </mxCell>
+
+    <!-- Elements inside Model 3 -->
+    <mxCell id="node_mental" value="Mental Stress&lt;br&gt;Evaluation" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff3e0;strokeColor=#e65100;" vertex="1" parent="1">
+      <mxGeometry x="810" y="140" width="110" height="50" as="geometry" />
+    </mxCell>
+    <mxCell id="node_phys" value="Physical Fatigue&lt;br&gt;Grading" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff3e0;strokeColor=#e65100;" vertex="1" parent="1">
+      <mxGeometry x="810" y="240" width="110" height="50" as="geometry" />
+    </mxCell>
+
+    <!-- Bottom Evaluation Bar -->
+    <mxCell id="bottom_bar" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#ffcc00;dashed=1;strokeWidth=1;" vertex="1" parent="1">
+      <mxGeometry x="40" y="500" width="980" height="80" as="geometry" />
+    </mxCell>
+    <mxCell id="e1" value="Data Augmentation" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff9c4;strokeColor=#fbc02d;" vertex="1" parent="1">
+      <mxGeometry x="60" y="520" width="150" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="e2" value="Sensitivity Analysis" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff9c4;strokeColor=#fbc02d;" vertex="1" parent="1">
+      <mxGeometry x="260" y="520" width="150" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="e3" value="Model Robustness" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff9c4;strokeColor=#fbc02d;" vertex="1" parent="1">
+      <mxGeometry x="460" y="520" width="150" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="e4" value="Cross-Validation" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff9c4;strokeColor=#fbc02d;" vertex="1" parent="1">
+      <mxGeometry x="660" y="520" width="150" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="e5" value="Final Output Result" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff9c4;strokeColor=#fbc02d;" vertex="1" parent="1">
+      <mxGeometry x="850" y="520" width="150" height="40" as="geometry" />
+    </mxCell>
+    
+    <!-- Connector Arrows for Bottom Bar -->
+    <mxCell id="be1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="e1" target="e2"><mxGeometry relative="1" as="geometry"/></mxCell>
+    <mxCell id="be2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="e2" target="e3"><mxGeometry relative="1" as="geometry"/></mxCell>
+    <mxCell id="be3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="e3" target="e4"><mxGeometry relative="1" as="geometry"/></mxCell>
+    <mxCell id="be4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="e4" target="e5"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+  </root>
+</mxGraphModel>

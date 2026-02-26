@@ -1,0 +1,76 @@
+<mxfile host="app.diagrams.net" modified="2023-10-27T10:00:00.000Z" agent="Mozilla/5.0" etag="uniqueCode" version="22.0.8" type="device">
+  <diagram name="Page-1" id="uniqueDiagramId">
+    <mxGraphModel dx="1434" dy="746" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="start" value="开始" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="360" y="20" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="init_segments" value="初始化数据段、栈段" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="335" y="130" width="130" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="show_menu" value="打印菜单并获取用户选择" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="320" y="220" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ask_mode" value="选择模式二？" style="rhombus;whiteSpace=wrap;html=1;rounded=0;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="340" y="310" width="120" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="mode1_block" value="模式一：查询/查询" style="shape=process;whiteSpace=wrap;html=1;size=20;resizeWidth=1;resizeHeight=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="100" y="330" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="mode2_block" value="模式二：查询/中断" style="shape=process;whiteSpace=wrap;html=1;size=20;resizeWidth=1;resizeHeight=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="550" y="330" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="mode1_loop" value="主循环 (模式一)&#10;1. 内联查询接收&#10;2. 内联显示字符&#10;3. 内联检查键盘&#10;4. 内联发送字符&#10;5. 判断退出键" style="shape=process;whiteSpace=wrap;html=1;size=20;resizeWidth=1;resizeHeight=1;fillColor=#fff2cc;strokeColor=#d6b656;align=left;spacingLeft=4;" vertex="1" parent="1">
+          <mxGeometry x="80" y="420" width="190" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="setup_isr_call" value="调用中断设置子程序" style="shape=process;whiteSpace=wrap;html=1;size=20;resizeWidth=1;resizeHeight=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="550" y="420" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="mode2_loop" value="主循环 (模式二)&#10;1. 内联检查键盘&#10;2. 内联发送字符&#10;3. 判断退出键&#10;[接收由ISR处理]" style="shape=process;whiteSpace=wrap;html=1;size=20;resizeWidth=1;resizeHeight=1;fillColor=#fff2cc;strokeColor=#d6b656;align=left;spacingLeft=4;" vertex="1" parent="1">
+          <mxGeometry x="530" y="510" width="190" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="restore_isr_call" value="调用中断恢复子程序" style="shape=process;whiteSpace=wrap;html=1;size=20;resizeWidth=1;resizeHeight=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="550" y="640" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="end" value="结束" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="360" y="740" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="isr_note" value="中断服务程序 (ISR)&#10;[硬件触发, 独立于主循环]&#10;1. 保护现场&#10;2. 读取字符&#10;3. 显示字符&#10;4. 发送EOI&#10;5. 恢复现场&#10;6. IRET" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="780" y="415" width="180" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-1" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="start" target="init_segments"/>
+        <mxCell id="edge-2" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="init_segments" target="show_menu"/>
+        <mxCell id="edge-3" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="show_menu" target="ask_mode"/>
+        <mxCell id="edge-4" value="否 (模式一)" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="ask_mode" target="mode1_block"/>
+        <mxCell id="edge-5" value="是" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="ask_mode" target="mode2_block"/>
+        <mxCell id="edge-6" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="mode1_block" target="mode1_loop"/>
+        <mxCell id="edge-7" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="mode2_block" target="setup_isr_call"/>
+        <mxCell id="edge-8" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="setup_isr_call" target="mode2_loop"/>
+        <mxCell id="edge-9" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="mode2_loop" target="restore_isr_call"/>
+        <mxCell id="edge-10" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="mode1_loop" target="end">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="175" y="550" as="sourcePoint"/>
+            <mxPoint x="400" y="730" as="targetPoint"/>
+            <Array as="points">
+              <mxPoint x="175" y="780" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-11" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="restore_isr_call" target="end">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="625" y="710" as="sourcePoint"/>
+            <mxPoint x="440" y="780" as="targetPoint"/>
+            <Array as="points">
+              <mxPoint x="625" y="780" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;dashed=1;" edge="1" parent="1" source="setup_isr_call" target="isr_note">
+           <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
