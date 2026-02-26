@@ -1,0 +1,134 @@
+<mxfile host="app.diagrams.net" modified="2023-10-27T08:45:00.000Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36" etag="qG1hJkL2vR3xY4pZ5bF7" version="22.0.8" type="device">
+  <diagram name="Page-1" id="C4-hgtw_V5_k2aN38Y-p">
+    <mxGraphModel dx="1434" dy="742" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;&lt;b&gt;数据层&lt;/b&gt;&lt;/font&gt;" style="shape=swimlane;whiteSpace=wrap;html=1;startSize=30;collapsible=0;rounded=1;arcSize=10;fillColor=#e6f0ff;strokeColor=#82b3ff;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="760" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="3" value="&lt;b&gt;Cityscapes 数据集&lt;/b&gt;&lt;br&gt;标准目录结构&lt;br&gt;(原始图像 &amp;amp; 标签)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="2">
+          <mxGeometry x="290" y="50" width="180" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="4" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;&lt;b&gt;算法层&lt;/b&gt;&lt;/font&gt;" style="shape=swimlane;whiteSpace=wrap;html=1;startSize=30;collapsible=0;rounded=1;arcSize=10;fillColor=#e6ffe6;strokeColor=#82b382;" vertex="1" parent="1">
+          <mxGeometry x="40" y="190" width="760" height="420" as="geometry" />
+        </mxCell>
+        <mxCell id="5" value="&lt;b&gt;1. 数据管理模块&lt;/b&gt;&lt;br&gt;&lt;i&gt;imageDatastore&lt;/i&gt;&lt;br&gt;&lt;i&gt;pixelLabelDatastore&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="4">
+          <mxGeometry x="290" y="50" width="180" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="6" value="&lt;b&gt;2. 特征工程模块&lt;/b&gt;&lt;br&gt;(用于 SVM, RF, GBDT)&lt;br&gt;&lt;i&gt;extract_pixel_features&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="4">
+          <mxGeometry x="60" y="160" width="180" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="7" value="&lt;b&gt;3. 模型训练模块&lt;/b&gt;&lt;br&gt;(SVM, RF, GBDT, U-Net)&lt;br&gt;&lt;i&gt;main_SVM_...m&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="4">
+          <mxGeometry x="340" y="160" width="180" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="8" value="&lt;b&gt;4. 模型评估模块&lt;/b&gt;&lt;br&gt;(含后处理)&lt;br&gt;&lt;i&gt;evaluate_all_models.m&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="4">
+          <mxGeometry x="290" y="320" width="180" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="9" value="&lt;b&gt;已训练模型&lt;/b&gt;&lt;br&gt;&lt;i&gt;(.mat 文件)&lt;/i&gt;" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="4">
+          <mxGeometry x="560" y="245" width="120" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="10" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;&lt;b&gt;应用层&lt;/b&gt;&lt;/font&gt;" style="shape=swimlane;whiteSpace=wrap;html=1;startSize=30;collapsible=0;rounded=1;arcSize=10;fillColor=#fff0e6;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="40" y="630" width="760" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="11" value="&lt;b&gt;5. 可视化模块&lt;/b&gt;&lt;br&gt;将掩码转为彩色图&lt;br&gt;&lt;i&gt;label2rgb&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="10">
+          <mxGeometry x="290" y="40" width="180" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="12" value="&lt;b&gt;最终输出&lt;/b&gt;&lt;br&gt;- 量化评估指标 (准确率)&lt;br&gt;- 多宫格对比图" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="10">
+          <mxGeometry x="280" y="130" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="13" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="3" target="5">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="390" y="300" as="sourcePoint" />
+            <mxPoint x="440" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="14" value="像素数据" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="13">
+          <mxGeometry x="-0.4" y="2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="15" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="5" target="7">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="390" y="340" as="sourcePoint" />
+            <mxPoint x="440" y="290" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="16" value="用于U-Net" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="15">
+          <mxGeometry x="-0.3391" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="17" value="" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="5" target="6">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="390" y="340" as="sourcePoint" />
+            <mxPoint x="440" y="290" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="200" y="325" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="18" value="用于传统机器学习" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="17">
+          <mxGeometry x="-0.2706" y="2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="19" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="6" target="7">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="390" y="340" as="sourcePoint" />
+            <mxPoint x="440" y="290" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="20" value="特征向量" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="19">
+          <mxGeometry x="-0.2314" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="21" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="7" target="9">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="500" y="440" as="sourcePoint" />
+            <mxPoint x="550" y="390" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="22" value="持久化模型" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="21">
+          <mxGeometry x="-0.2118" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="23" value="" style="endArrow=classic;html=1;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="9" target="8">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="530" y="490" as="sourcePoint" />
+            <mxPoint x="480" y="550" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="520" y="560" />
+              <mxPoint x="520" y="520" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="24" value="加载模型进行评估" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="23">
+          <mxGeometry x="-0.5824" y="-3" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="25" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="8" target="11">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="390" y="630" as="sourcePoint" />
+            <mxPoint x="440" y="580" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="26" value="数字掩码 &amp;amp; 评估指标" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="25">
+          <mxGeometry x="-0.24" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="27" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="11" target="12">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="390" y="730" as="sourcePoint" />
+            <mxPoint x="440" y="680" as="targetPoint" />
+          </eyJtYWdlc3RlcSI6e319" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

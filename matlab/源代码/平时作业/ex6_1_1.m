@@ -1,0 +1,6 @@
+% dblquad 方法
+tic,y1 = dblquad(@(x,y) sqrt(10^4 - x.^2) .* (x.^2 + y.^2 <= 10^4),...
+-100,100, -100,100 ),toc
+% quad2d 方法
+tic,y2 = quad2d(@(x,y) sqrt(10^4 - x.^2),-100,100,...
+@(x) -sqrt(10^4 - x.^2),@(x)sqrt(10^4 - x.^2)),toc
